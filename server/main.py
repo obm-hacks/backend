@@ -21,7 +21,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/buildings")
 def main():
     global model
@@ -53,10 +52,11 @@ def main():
     }]
 
 
-@app.get("/buildings/{id}")
-def get_info(id: str):
-    print(id)
+@app.post("/predict")
+def get_info(row: dict):
+
     return [{
+        "date": "2022-10-01T00:00:00",
         "prediction": 100000,
         "weatherMin": 20,
         "weatherMax": 30,
@@ -77,3 +77,30 @@ def get_info(id: str):
         "weatherAvg": 25,    
         "precipitation": 25,
     }]
+
+
+# @app.get("/buildings")
+# def main():
+#     global model
+#     return model.get_buildings()
+
+
+# @app.get("/predict")
+# def get_info():
+#     row = {
+#         "latitude": 55.733364,
+#         "longitude": 37.640751,
+#         "geocoderAddress": "Addr",
+#         "buildingAge": 29,
+#         "buildingSquare": 230,
+#         "technicalConditions": "Хорошее",
+#         "krValue": 21212124,
+#         "ksValue": 2112124,
+#         "trValue": 123123,
+#         "residualValue": 2011000,
+#         "balanceValue": 2012120,
+#     }
+#     global model
+#     pred = model.predict(row)
+#     print(pred)
+#     return pred
