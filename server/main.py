@@ -57,32 +57,23 @@ def main():
 def get_info(id: str):
     print(id)
     return [{
-        "date": "2020-04-20",
         "prediction": 100000,
-        "weather": {
-            "min": 20,
-            "max": 30,
-            "avg": 25,
-            "precipitation": 25,
-        },
+        "weatherMin": 20,
+        "weatherMax": 30,
+        "weatherAvg": 30,    
+        "precipitation": 25,
     },
     {
-        "date": "2020-05-20",
-        "prediction": 80000,
-        "weather": {
-            "min": 25,
-            "max": 30,
-            "avg": 27,
-            "precipitation": 79,
-        },
+        "prediction": 10000,
+        "weatherMin": 19,
+        "weatherMax": 32,
+        "weatherAvg": 25,    
+        "precipitation": 25,
     },
     {
-        "date": "2020-06-20",
-        "prediction": 120000,
-        "weather": {
-            "min": 27,
-            "max": 34,
-            "avg": 30,
-            "precipitation": 24,
-        },
+        "prediction": 10000,
+        "weatherMin": 19,
+        "weatherMax": 32,
+        "weatherAvg": 25,    
+        "precipitation": 25,
     }]
