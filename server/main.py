@@ -25,8 +25,32 @@ app.add_middleware(
 @app.get("/buildings")
 def main():
     global model
-    res = model.get_buildings()
-    return res
+
+    return [{
+        "latitude": 55.733364,
+        "longitude": 37.640751,
+        "geocoderAddress": "Addr",
+        "buildingAge": 29,
+        "buildingSquare": 230,
+        "technicalConditions": "Хорошее",
+        "krValue": 21212124,
+        "ksValue": 2112124,
+        "trValue": 123123,
+        "residualValue": 2011000,
+        "balanceValue": 2012120,
+    }, {
+        "latitude": 55.741557,
+        "longitude": 37.620027,
+        "geocoderAddress": "Some addr",
+        "buildingAge": 29,
+        "buildingSquare": 230,
+        "technicalConditions": "Хорошее",
+        "krValue": 211212124, # кап ремонт
+        "ksValue": 21122124, # еще какие-то
+        "trValue": 1232123, # устройство территории
+        "residualValue": 20110010,
+        "balanceValue": 20122120,
+    }]
 
 
 @app.get("/buildings/{id}")
