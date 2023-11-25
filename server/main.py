@@ -1,5 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from model import Model
+
+model = Model(
+    'data_with_target.frt')
+
 
 origins = [
     "http://51.250.11.222",
@@ -19,6 +24,8 @@ app.add_middleware(
 
 @app.get("/buildings")
 def main():
+    global model
+
     return [{
         "latitude": 55.733364,
         "longitude": 37.640751,
@@ -27,6 +34,11 @@ def main():
         "buildingAge": 29,
         "buildingSquare": 230,
         "technicalConditions": "Хорошее",
+        "krValue": 21212124,
+        "ksValue": 2112124,
+        "trValue": 123123,
+        "residualValue": 2011000,
+        "balanceValue": 2012120,
     }, {
         "latitude": 55.741557,
         "longitude": 37.620027,
@@ -34,13 +46,18 @@ def main():
         "prediction": 1000,
         "buildingAge": 29,
         "buildingSquare": 230,
-        "technicalConditions": "Хорошее"
+        "technicalConditions": "Хорошее",
+        "krValue": 211212124, # кап ремонт
+        "ksValue": 21122124, # еще какие-то вложения
+        "trValue": 1232123, # устройство территории
+        "residualValue": 20110010,
+        "balanceValue": 20122120,
     }]
 
 
 @app.get("/buildings/{id}")
 def get_info(id: str):
-    print(id);
+    print(id)
     return [{
         "date": "2020-04-20",
         "prediction": 100000,
